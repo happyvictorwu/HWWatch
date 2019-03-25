@@ -13,7 +13,7 @@
 
 using namespace std;
 
-// Dijkstra算法求最短路径
+// Dijkstra算法求最短路径 1 -> 0
 template<typename Graph, typename Weight>
 class Dijkstra{
 
@@ -34,9 +34,9 @@ public:
         this->s = s;
         distTo = new Weight[G.V()];
         marked = new bool[G.V()];
-        for( int i = 0 ; i < G.V() ; i ++ ){
-            distTo[i] = Weight();
-            marked[i] = false;
+        for( int i = 1 ; i <= G.V() ; i ++ ){
+            distTo[i-1] = Weight();
+            marked[i-1] = false;
             from.push_back(NULL);
         }
 
@@ -44,17 +44,18 @@ public:
         IndexMinHeap<Weight> ipq(G.V());
 
         // 对于其实点s进行初始化
-        distTo[s] = Weight();
+        distTo[s] = Weight();   // 自己到自己一定是0， 但是模版类用的是自己的默认构造函数
+        marked[s] = true;
         from[s] = new Edge<Weight>(s, s, Weight());
         ipq.insert(s, distTo[s] );
-        marked[s] = true;
+        
         while( !ipq.isEmpty() ){
             int v = ipq.extractMinIndex();
 
             // distTo[v]就是s到v的最短距离
             marked[v] = true;
 
-            // 对v的所有相邻节点进行更新
+            // 对v的所有相邻节点进行更新 ！！松弛操作
             typename Graph::adjIterator adj(G, v);
             for( Edge<Weight>* e = adj.begin() ; !adj.end() ; e = adj.next() ){
                 int w = e->other(v);
@@ -84,21 +85,21 @@ public:
 
     // 返回从s点到w点的最短路径长度
     Weight shortestPathTo( int w ){
-//        assert( w > 0 && w <= G.V() );
-//        assert( hasPathTo(w) );
+       assert( w >= 0 && w < G.V() );
+       assert( hasPathTo(w) );
         return distTo[w];
     }
 
     // 判断从s点到w点是否联通
     bool hasPathTo( int w ){
-//        assert( w > 0 && w <= G.V() );
+       assert( w >= 0 && w < G.V() );
         return marked[w];
     }
 
     // 寻找从s到w的最短路径, 将整个路径经过的边存放在vec中
     void shortestPath( int w, vector<Edge<Weight>> &vec ){
 
-//        assert( w > 0 && w <= G.V() );
+        assert( w >= 0 && w < G.V() );
         assert( hasPathTo(w) );
 
         // 通过from数组逆向查找到从s到w的路径, 存放到栈中
@@ -121,12 +122,12 @@ public:
     // 打印出从s点到w点的路径
     void showPath(int w){
 
-//        assert( w > 0 && w <= G.V() );
+        assert( w >= 0 && w < G.V() );
         assert( hasPathTo(w) );
 
         vector<Edge<Weight>> vec;
         shortestPath(w, vec);
-        for( int i = 0; i <= vec.size() ; i ++ ){
+        for( int i = 0; i < vec.size() ; i ++ ){
             cout<<vec[i].v()<<" -> ";
             if( i == vec.size()-1 )
                 cout<<vec[i].w()<<endl;
