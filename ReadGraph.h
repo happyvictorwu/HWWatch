@@ -25,6 +25,9 @@ public:
     }
 private:
 
+    vector<int> r;
+    vector<pair<int, int> > from_to;
+
     void readRoad(Graph &graph, const string &roadPath) {
         FILE *fp;
         fp = fopen(roadPath.c_str(), "r");
@@ -35,6 +38,8 @@ private:
         while ( fscanf(fp, "(%d, %d, %d, %d, %d, %d, %d)\n",
                        &id, &length, &speed, &channel, &from, &to, &isDuplex) != EOF) {
             printf("%d %d %d %d %d %d %d\n", id, length, speed, channel, from, to, isDuplex);
+            r.push_back(id);
+            from_to.push_back(pair(from, to));
             int a = from;
             int b = to;
             Weight wt = (double)length / speed;
@@ -70,45 +75,39 @@ private:
     void readCross(Graph &graph, const string &crossPath, const string &roadPath) {
         FILE *fp;
         fp = fopen(crossPath.c_str(), "r");
-//        vector<int> road;
         int crossId, roadId1, roadId2, roadId3, roadId4;
         char str[100];
         fscanf(fp, "%s\n", str);
         cout << str << endl;
-        while ( fscanf(fp, "(%d, %d, %d, %d, %d)\n", &crossId, &roadId1, &roadId2, &roadId3, &roadId4) ) {
+        while ( fscanf(fp, "(%d, %d, %d, %d, %d)\n", &crossId, &roadId1, &roadId2, &roadId3, &roadId4) != EOF ) {
             printf("%d %d %d %d %d\n", crossId, roadId1, roadId2, roadId3, roadId4);
 
-            // road表,如何有crossId是from， 道路id为roadId的，检查一条边w为road.txt的to
-            FILE *fp2;
-            fp2 = fopen(roadPath.c_str(), "r");
-//(id,length,speed,channel,from,to,isDuplex)
-            int id, a2, a3, a4, from, to, a7;   // from 对应crossId
-            char str1[100];
-            fscanf(fp2, "%s\n", str1);
-            while ( fscanf(fp2, "(%d, %d, %d, %d, %d, %d, %d)\n",
-                           &id, &a2, &a3, &a4, &from, &to, &a7) != EOF) {
-                if (id == roadId1) {
-                    assert(from == crossId);
-                    graph.addEdgeRoad(roadId1, crossId, to);
-                    cout << from << " connect to " << to << " with " << roadId1;
-                } else if (id == roadId2) {
-                    assert(from == crossId);
-                    graph.addEdgeRoad(roadId2, crossId, to);
-                    cout << from << " connect to " << to << " with " << roadId2;
-                } else if (id == roadId3) {
-                    assert(from == crossId);
-                    graph.addEdgeRoad(roadId3, crossId, to);
-                    cout << from << " connect to " << to << " with " << roadId3;
-                } else if (id == roadId4) {
-                    assert(from == crossId);
-                    graph.addEdgeRoad(roadId4, crossId, to);
-                    cout << from << " connect to " << to << " with " << roadId4;
-                }
-
+        // road表,如何有crossId是from， 道路id为roadId的，检查一条边w为road.txt的to
+        
+        for (int i = 0; i < r.size(); i++) {
+            if (r[i] == roadId1) {
+                assert(from_to[i].first == crossId);
+                graph.addEdgeRoad(roadId1, crossId, from_to[i].second);
+                cout << from_to[i].first << " connect to " << from_to[i].second << " with " << roadId1;
+            } else if (r[i] == roadId2) {
+                assert(from_to[i].first == crossId);
+                graph.addEdgeRoad(roadId2, crossId, from_to[i].second);
+                cout << from_to[i].first << " connect to " << from_to[i].second << " with " << roadId2;
+            } else if (id == roadId3) {
+                assert(from_to[i].first == crossId);
+                graph.addEdgeRoad(roadId3, crossId, from_to[i].second);
+                cout << from_to[i].first << " connect to " << from_to[i].second << " with " << roadId3;
+            } else if (id == roadId4) {
+                assert(from == crossId);
+                graph.addEdgeRoad(roadId4, crossId, to);
+                cout << from_to[i].first << " connect to " << from_to[i].second << " with " << roadId4;
             }
-            fclose(fp2);
-
         }
+
+            
+           
+        }
+        fclose(fp);
     }
 
     
