@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     cout << "\t--- PROCESS ---" << endl;
     cout<<"Test Dijkstra:"<<endl<<endl;
 
-    vector<vector<int> > resArr(g.carList.size()+1);
+    vector<vector<int> > resArr(g.carList.size());
     for (int i = 0; i < g.carList.size(); i++) {
 
         Dijkstra<SparseGraph<int>, int> dij(g, g.carList[i].getFrom());
@@ -64,8 +64,7 @@ int main(int argc, char *argv[])
         cout << endl;
     }
 
-
-
+    cout << "last number is" << resArr.size() << endl;
 
     WriteAnswer writeAnswer(resArr, answerPath);
     cout << "\n\tEND OF WRITE OUTPUT FILE" << endl;
