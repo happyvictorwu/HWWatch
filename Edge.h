@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <cassert>
+#include <vector>
 
 using namespace std;
 
@@ -16,6 +17,7 @@ class Edge{
 private:
     int a,b;    // 边的两个端点
     Weight weight;  // 边的权值
+    vector<int> road;   //拥有的道路
 
 public:
     // 构造函数
@@ -35,6 +37,24 @@ public:
     int w(){ return b;}
     // 返回权值
     Weight wt(){ return weight;}
+
+    void addRoad(vector<int> &road) {
+        assert( road.size() == 4 );
+        for (int i = 0; i < road.size(); i++) {
+            if (road[i] != -1)
+                this->road.push_back(road[i]);
+        }
+    }
+
+    bool hasRoad(int k) {
+        bool res = false;
+        for (int i = 0; i < road.size(); i++) {
+            if (road[i] == k) {
+                return true;
+            }
+        }
+        return res;
+    }
 
     // 给定一个顶点, 返回另一个顶点
     int other(int x){

@@ -10,6 +10,7 @@
 #include <fstream>
 #include <sstream>
 #include <cassert>
+#include <vector>
 
 using namespace std;
 
@@ -61,8 +62,25 @@ private:
         }
     }
 
-    void readCross() {
-
+//#(id,roadId,roadId,roadId,roadId)
+//    (1, 5000, 5005, -1, -1)
+    void readCross(Graph &graph, const string &crossPath) {
+        FILE *fp;
+        fp = fopen(crossPath.c_str(), "r");
+        vector<int> road;
+        int crossId, roadId1, roadId2, roadId3, roadId4;
+        char str[100];
+        fscanf(fp, "%s\n", str);
+        cout << str << endl;
+        while ( fscanf(fp, "(%d, %d, %d, %d, %d)\n", &crossId, &roadId1, &roadId2, &roadId3, &roadId4) ) {
+            printf("%d %d %d %d %d\n", crossId, roadId1, roadId2, roadId3, roadId4);
+            road.push_back(roadId1);
+            road.push_back(roadId2);
+            road.push_back(roadId3);
+            road.push_back(roadId4);
+            graph.addEdgeRoad(crossId, road);
+            road.clear();
+        }
     }
 
     

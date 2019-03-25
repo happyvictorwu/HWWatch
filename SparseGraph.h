@@ -61,6 +61,13 @@ public:
         m ++;
     }
 
+    // 为边添加道路
+    void addEdgeRoad(int crossId, vector<int> &road) {
+        for (int j = 0; j < g[crossId].size(); j++) {
+//            g[crossId][j]. Todo
+        }
+    }
+
     // 验证图中是否有从v到w的边
     bool hasEdge( int v , int w ){
         assert( v > 0 && v <= n );
