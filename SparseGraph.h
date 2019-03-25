@@ -9,6 +9,7 @@
 #include <vector>
 #include <cassert>
 #include "Edge.h"
+#include "Car.h"
 
 using namespace std;
 
@@ -20,8 +21,12 @@ private:
     int n, m;       // 节点数和边数
     bool directed;  // 是否为有向图
     vector<vector<Edge<Weight> *> > g;   // 图的具体数据
+    
 
 public:
+    // 车辆的状态
+    vector<Car> carList;
+
     // 构造函数
     SparseGraph( int n , bool directed){
         assert(n >= 0);
@@ -74,6 +79,12 @@ public:
             for( int j = 0 ; j < g[i].size() ; j ++ )
                 cout<<"( to:"<<g[i][j]->w()<<",wt:"<<g[i][j]->wt()<<")\t";
             cout<<endl;
+        }
+    }
+
+    void showCar() {
+        for (int i = 0; i < carList.size(); i++) {
+            cout << carList[i].getFrom() << " " << carList[i].getTo() << endl;
         }
     }
 

@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	
 	// TODO:read input filebuf
     cout << "\t--- READ INPUT FILEBUF ---" << endl;
-	int V = 36;
+	int V = 1000;
     SparseGraph<int> g = SparseGraph<int>(V, true);
     ReadGraph<SparseGraph<int>, int> readGraph(g, carPath, crossPath, roadPath);
     g.show();
@@ -35,20 +35,35 @@ int main(int argc, char *argv[])
     // TODO:process
     cout << "\t--- PROCESS ---" << endl;
     cout<<"Test Dijkstra:"<<endl<<endl;
-    Dijkstra<SparseGraph<int>, int> dij(g,1);
-    for( int i = 1 ; i <= V ; i ++ ){
-        if(dij.hasPathTo(i)){
-            cout<<"Shortest Path to "<<i<<" : "<<dij.shortestPathTo(i)<<endl;
-            dij.showPath(i);
-        }
-        else
-            cout<<"No Path to "<<i<<endl;
 
+    vector<vector<int> > resArr(g.carList.size()+1);
+    for (int i = 0; i < g.carList.size(); i++) {
+
+        Dijkstra<SparseGraph<int>, int> dij(g, g.carList[i].getFrom());
+        if(dij.hasPathTo(g.carList[i].getTo())){
+            resArr[i].push_back(g.carList[i].getId());
+            cout<< g.carList[i].getFrom()<<" -> "<< g.carList[i].getTo() << " Shortest Path is " <<dij.shortestPathTo(g.carList[i].getTo())<<endl;
+            dij.showPath(resArr[i], g.carList[i].getTo());
+        }
+        else {
+            cout<<g.carList[i].getFrom()<<"No Path to "<<g.carList[i].getTo()<<endl;
+        }     
         cout<<"----------"<<endl;
     }
     cout << "\n\tEND OF PROCESS" << endl;
 
     // TODO:write output file
+    cout << "\t--- WRITE OUTPUT FILE ---" << endl;
+
+    for (int i = 0; i < resArr.size(); i++) {
+        for (int j = 0; j < resArr[i].size(); j++) {
+            cout << resArr[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    cout << "\n\tEND OF WRITE OUTPUT FILE" << endl;
+
 	
 	return 0;
 }

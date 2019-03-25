@@ -10,6 +10,7 @@
 #include <stack>
 #include "../Edge.h"
 #include "IndexMinHeap.h"
+#include "../Car.h"
 
 using namespace std;
 
@@ -120,7 +121,7 @@ public:
     }
 
     // 打印出从s点到w点的路径
-    void showPath(int w){
+    void showPath(vector<int> &res, int w){
 
         assert( w >= 0 && w < G.V() );
         assert( hasPathTo(w) );
@@ -128,9 +129,13 @@ public:
         vector<Edge<Weight>> vec;
         shortestPath(w, vec);
         for( int i = 0; i < vec.size() ; i ++ ){
+            res.push_back(vec[i].v());
             cout<<vec[i].v()<<" -> ";
-            if( i == vec.size()-1 )
+            if( i == vec.size()-1 ) {
                 cout<<vec[i].w()<<endl;
+                res.push_back(vec[i].w());
+            }
+
         }
     }
 };
