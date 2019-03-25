@@ -28,7 +28,6 @@ public:
             }
             fprintf(fp, ")\n");
         }
-
     }
 };
 
