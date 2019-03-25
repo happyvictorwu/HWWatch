@@ -62,9 +62,12 @@ public:
     }
 
     // 为边添加道路
-    void addEdgeRoad(int crossId, vector<int> &road) {
-        for (int j = 0; j < g[crossId].size(); j++) {
-//            g[crossId][j]. Todo
+    void addEdgeRoad(int roadId, int crossId, int to) {
+        assert(crossId > 0 && crossId <= n);
+        for (int i = 0; i < g[crossId].size(); i++) {
+            if ( g[crossId][i]->w() == to ) {
+                g[crossId][i]->addRoad(roadId);
+            }
         }
     }
 

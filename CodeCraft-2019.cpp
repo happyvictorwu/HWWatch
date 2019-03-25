@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	
 	// TODO:read input filebuf
     cout << "\t--- READ INPUT FILEBUF ---" << endl;
-	int V = 1000;
+	int V = 37;
     SparseGraph<int> g = SparseGraph<int>(V, true);
     ReadGraph<SparseGraph<int>, int> readGraph(g, carPath, crossPath, roadPath);
     g.show();
