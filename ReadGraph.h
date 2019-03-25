@@ -37,9 +37,6 @@ public:
 
             graph.addEdge( a, b, wt);
         }
-
-        cout << "------------ read end ------------" << endl;
-
     }
 };
 

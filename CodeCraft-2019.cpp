@@ -1,7 +1,7 @@
 #include "iostream"
 #include "SparseGraph.h"
 #include "ReadGraph.h"
-#include "Dijkstra.h"
+#include "Dijkstra/Dijkstra.h"
 
 using namespace std;
 
@@ -25,13 +25,15 @@ int main(int argc, char *argv[])
 	std::cout << "answerPath is " << answerPath << std::endl;
 	
 	// TODO:read input filebuf
+    cout << "\t--- READ INPUT FILEBUF ---" << endl;
 	int V = 36;
     SparseGraph<int> g = SparseGraph<int>(V, true);
     ReadGraph<SparseGraph<int>, int> readGraph(g, carPath, crossPath, roadPath);
     g.show();
+    cout << "\n\tEND OF READ INPUT FILEBUF" << endl;
 
     // TODO:process
-
+    cout << "\t--- PROCESS ---" << endl;
     cout<<"Test Dijkstra:"<<endl<<endl;
     Dijkstra<SparseGraph<int>, int> dij(g,1);
     for( int i = 1 ; i <= V ; i ++ ){
@@ -44,7 +46,7 @@ int main(int argc, char *argv[])
 
         cout<<"----------"<<endl;
     }
-
+    cout << "\n\tEND OF PROCESS" << endl;
 
     // TODO:write output file
 	
