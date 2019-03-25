@@ -48,10 +48,10 @@ public:
         assert( w > 0 && w <= n );
 
         // 注意, 由于在邻接表的情况, 查找是否有重边需要遍历整个链表
-        // 我们的程序允许重边的出现
+        // 程序允许重边的出现
 
         g[v].push_back(new Edge<Weight>(v, w, weight));
-        if( v != w && !directed )
+        if( v != w && !directed )   // 如果是无向边
             g[w].push_back(new Edge<Weight>(w, v, weight));
         m ++;
     }
@@ -60,7 +60,7 @@ public:
     bool hasEdge( int v , int w ){
         assert( v > 0 && v <= n );
         assert( w > 0 && w <= n );
-        for( int i = 0 ; i < g[v].size() ; i ++ )
+        for( int i = 1 ; i <= g[v].size() ; i ++ )
             if( g[v][i]->other(v) == w )
                 return true;
         return false;

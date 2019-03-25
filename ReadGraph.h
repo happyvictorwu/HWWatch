@@ -30,7 +30,7 @@ public:
             printf("%d %d %d %d %d %d %d\n", id, length, speed, channel, from, to, isDuplex);
             int a = from;
             int b = to;
-            Weight wt = length;
+            Weight wt = (double)length / speed;
 
             assert( a > 0 && a <= graph.V() );
             assert( b > 0 && b <= graph.V() );
