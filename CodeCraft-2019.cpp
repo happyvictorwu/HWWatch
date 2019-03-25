@@ -2,6 +2,7 @@
 #include "SparseGraph.h"
 #include "ReadGraph.h"
 #include "Dijkstra/Dijkstra.h"
+#include "WriteAnswer.h"
 
 using namespace std;
 
@@ -42,6 +43,7 @@ int main(int argc, char *argv[])
         Dijkstra<SparseGraph<int>, int> dij(g, g.carList[i].getFrom());
         if(dij.hasPathTo(g.carList[i].getTo())){
             resArr[i].push_back(g.carList[i].getId());
+            resArr[i].push_back(g.carList[i].getPlanTime());
             cout<< g.carList[i].getFrom()<<" -> "<< g.carList[i].getTo() << " Shortest Path is " <<dij.shortestPathTo(g.carList[i].getTo())<<endl;
             dij.showPath(resArr[i], g.carList[i].getTo());
         }
@@ -62,8 +64,11 @@ int main(int argc, char *argv[])
         cout << endl;
     }
 
+
+
+
+    WriteAnswer writeAnswer(resArr, answerPath);
     cout << "\n\tEND OF WRITE OUTPUT FILE" << endl;
 
-	
 	return 0;
 }
