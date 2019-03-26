@@ -21,11 +21,11 @@ public:
     ReadGraph(Graph &graph, const string &carPath, const string &crossPath, const string &roadPath){
         readRoad(graph, roadPath);
         readCar(graph, carPath);
-        readCross(graph, crossPath, carPath);
+//        readCross(graph, crossPath, carPath);
     }
 private:
 
-    vector<int> r;
+    vector<int> r;  // roidId
     vector<pair<int, int> > from_to;
 
     void readRoad(Graph &graph, const string &roadPath) {
@@ -39,18 +39,19 @@ private:
                        &id, &length, &speed, &channel, &from, &to, &isDuplex) != EOF) {
             printf("%d %d %d %d %d %d %d\n", id, length, speed, channel, from, to, isDuplex);
             r.push_back(id);
-            from_to.push_back(pair(from, to));
+            from_to.push_back(pair<int, int>(from, to));
             int a = from;
             int b = to;
-            Weight wt = (double)length / speed;
+            int c = id;
+            Weight wt = (double)length / speed / 10;
 
             assert( a > 0 && a <= graph.V() );
             assert( b > 0 && b <= graph.V() );
 
-            graph.addEdge( a, b, wt);
+            graph.addEdge( a, b, wt, c);
 
             if (isDuplex) {
-                graph.addEdge( b, a, wt );
+                graph.addEdge( b, a, wt, c);
             }
         }
         fclose(fp);
@@ -86,21 +87,21 @@ private:
         
         for (int i = 0; i < r.size(); i++) {
             if (r[i] == roadId1) {
-                assert(from_to[i].first == crossId);
+                 assert(from_to[i].first == crossId);
                 graph.addEdgeRoad(roadId1, crossId, from_to[i].second);
-                cout << from_to[i].first << " connect to " << from_to[i].second << " with " << roadId1;
+                cout << from_to[i].first << " connect to " << from_to[i].second << " with " << roadId1 << endl;
             } else if (r[i] == roadId2) {
-                assert(from_to[i].first == crossId);
+                 assert(from_to[i].first == crossId);
                 graph.addEdgeRoad(roadId2, crossId, from_to[i].second);
-                cout << from_to[i].first << " connect to " << from_to[i].second << " with " << roadId2;
-            } else if (id == roadId3) {
-                assert(from_to[i].first == crossId);
+                cout << from_to[i].first << " connect to " << from_to[i].second << " with " << roadId2<< endl;
+            } else if (r[i] == roadId3) {
+                 assert(from_to[i].first == crossId);
                 graph.addEdgeRoad(roadId3, crossId, from_to[i].second);
-                cout << from_to[i].first << " connect to " << from_to[i].second << " with " << roadId3;
-            } else if (id == roadId4) {
-                assert(from == crossId);
-                graph.addEdgeRoad(roadId4, crossId, to);
-                cout << from_to[i].first << " connect to " << from_to[i].second << " with " << roadId4;
+                cout << from_to[i].first << " connect to " << from_to[i].second << " with " << roadId3<< endl;
+            } else if (r[i] == roadId4) {
+                 assert(from_to[i].first == crossId);
+                graph.addEdgeRoad(roadId4, crossId, from_to[i].second);
+                cout << from_to[i].first << " connect to " << from_to[i].second << " with " << roadId4<< endl;
             }
         }
 

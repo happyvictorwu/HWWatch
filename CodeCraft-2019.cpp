@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	
 	// TODO:read input filebuf
     cout << "\t--- READ INPUT FILEBUF ---" << endl;
-	int V = 37;
+	int V = 100;
     SparseGraph<int> g = SparseGraph<int>(V, true);
     ReadGraph<SparseGraph<int>, int> readGraph(g, carPath, crossPath, roadPath);
     g.show();
@@ -65,6 +65,15 @@ int main(int argc, char *argv[])
     }
 
     cout << "last number is" << resArr.size() << endl;
+
+//    vector<vector<int> > res;
+//    for (int i = 0; i < resArr.size(); i++) {
+//        res[i].push_back(resArr[i][0]);
+//        res[i].push_back(resArr[i][1]);
+//        for (int j = 2; j < resArr[i].size()-1; j++ ) {
+//            g
+//        }
+//    }
 
     WriteAnswer writeAnswer(resArr, answerPath);
     cout << "\n\tEND OF WRITE OUTPUT FILE" << endl;

@@ -129,12 +129,14 @@ public:
         vector<Edge<Weight>> vec;
         shortestPath(w, vec);
         for( int i = 0; i < vec.size() ; i ++ ){
-            res.push_back(vec[i].v());
-            cout<<vec[i].v()<<" -> ";
-            if( i == vec.size()-1 ) {
-                cout<<vec[i].w()<<endl;
-                res.push_back(vec[i].w());
-            }
+//            res.push_back(vec[i].v());
+//            cout<<vec[i].v()<<" -> ";
+//            if( i == vec.size()-1 ) {
+//                cout<<vec[i].w()<<endl;
+//                res.push_back(vec[i].w());
+//            }
+            res.push_back(vec[i].getRoad());
+
 
         }
     }

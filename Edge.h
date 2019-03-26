@@ -25,12 +25,20 @@ public:
         this->a = a;
         this->b = b;
         this->weight = weight;
-        this->road = -1;
     }
+
+    Edge(int a, int b, Weight weight, int roadId){
+        this->a = a;
+        this->b = b;
+        this->weight = weight;
+        this->road = roadId;
+    }
+
     // 空的构造函数, 所有的成员变量都取默认值
     Edge(){}
 
     ~Edge(){}
+
 
     // 返回第一个顶点
     int v(){ return a;}
@@ -38,6 +46,8 @@ public:
     int w(){ return b;}
     // 返回权值
     Weight wt(){ return weight;}
+
+    int getRoad(){ return road; }
 
     void addRoad(int road) {
         this->road = road;
