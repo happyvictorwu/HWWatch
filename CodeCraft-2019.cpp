@@ -6,6 +6,15 @@
 
 using namespace std;
 
+
+// car assign
+vector<Car> carList;    // 每辆车的信息
+vector<vector<int> > carGo; // 答案格式的二维数组
+
+
+
+const int numberOfCross = 100;
+
 int main(int argc, char *argv[])
 {
     std::cout << "Begin" << std::endl;
@@ -26,7 +35,7 @@ int main(int argc, char *argv[])
 	std::cout << "answerPath is " << answerPath << std::endl;
 	
 	// TODO: read input filebuf
-    const int numberOfCross = 100;
+
     SparseGraph<int> g = SparseGraph<int>(numberOfCross+1, true); // 初始化图g，（节点个数， 有向图）
 
 
@@ -37,38 +46,57 @@ int main(int argc, char *argv[])
 
 
     // TODO: process
-    vector<vector<int> > resArr(g.carList.size());
+
+    vector<vector<int> > resArr( g.carList.size() );  // resArr 是保存答案的二维数组存着每辆车的出发信息
+
     for (int i = 0; i < g.carList.size(); i++) {
 
-        Dijkstra<SparseGraph<int>, int> dij(g, g.carList[i].getFrom());
-        if(dij.hasPathTo(g.carList[i].getTo())){
-            resArr[i].push_back(g.carList[i].getId());
-            resArr[i].push_back(g.carList[i].getPlanTime());
-            cout<< g.carList[i].getFrom()<<" -> "<< g.carList[i].getTo() << " Shortest Path is " <<dij.shortestPathTo(g.carList[i].getTo())<<endl;
-            dij.showPath(resArr[i], g.carList[i].getTo());
-        }
-        else {
-            cout <<g.carList[i].getFrom()<<"No Path to "<<g.carList[i].getTo()<<endl;
+        Car originCar = g.carList[i];
+
+        Dijkstra<SparseGraph<int>, int> dij(g, originCar.getFrom());    // 对于图g，从车的起点组做Dijkstra
+
+        // 如当前的起点有去终点，就把答案放入resArr答案数组中，否则程序有异常
+        if( dij.hasPathTo( originCar.getTo() ) ) {
+
+            //头两个元素分别是 车辆的时间 , 实际的出发时间
+            resArr[i].push_back(originCar.getId());
+            resArr[i].push_back(originCar.getPlanTime());
+
+            dij.showPath( originCar.getTo(), resArr[i] ); // (到车的终点to， 保存结果的数组resArr)
+
+            // 输出最短路径为多少
+            cout << originCar.getFrom() << " -> " << originCar.getTo() << " 最短路径长度为 "
+                 << dij.shortestPathTo( originCar.getTo() ) << endl;
+
+        } else {
+            cout << g.carList[i].getFrom() << " 没有路径去 " << g.carList[i].getTo() << "异常" <<endl;
+            exit(1);
         }     
-        cout<<"----------"<<endl;
+        cout << "----------" << endl;
     }
-    cout << "\n\tEND OF PROCESS" << endl;
+
+
+
+
+
 
     // TODO:write output file
-    cout << "\t--- WRITE OUTPUT FILE ---" << endl;
-
-    for (int i = 0; i < resArr.size(); i++) {
-        for (int j = 0; j < resArr[i].size(); j++) {
-            cout << resArr[i][j] << " ";
-        }
-        cout << endl;
-    }
-
-    cout << "last number is" << resArr.size() << endl;
-
-
     WriteAnswer writeAnswer(resArr, answerPath);
-    cout << "\n\tEND OF WRITE OUTPUT FILE" << endl;
+
+    // 输出数组：
+    printf("#(carId,StartTime,RoadId...)\n");
+    for (int i = 0; i < resArr.size(); i++) {
+        printf("(");
+        for (int j = 0; j < resArr[i].size(); j++) {
+            printf("%d", resArr[i][j]);
+            if (j != resArr[i].size() - 1)
+                printf(",");
+        }
+        printf(")\n");
+    }
+    assert(resArr.size() == g.carList.size());
+    cout << "一共有 " << resArr.size() << " 辆车"<< endl;
+    cout << "运行结束" << endl;
 
 	return 0;
 }
