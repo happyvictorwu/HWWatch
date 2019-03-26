@@ -75,16 +75,16 @@ public:
     void show(){
 
         for( int i = 1 ; i <= n ; i ++ ){
-            cout<<"vertex "<<i<<":\t";
+            cout << "vertex " << i << ":\t";
             for( int j = 0 ; j < g[i].size() ; j ++ )
-                cout<<"( to:"<<g[i][j]->w()<<",wt:"<<g[i][j]->wt()<<")\t";
-            cout<<endl;
+                cout << "( to:" << g[i][j]->w() << ",wt:" << g[i][j]->wt() << ",roadId:" << g[i][j]->getRoad() << ")\t";
+            cout << endl;
         }
     }
 
     void showCar() {
         for (int i = 0; i < carList.size(); i++) {
-            cout << carList[i].getFrom() << " " << carList[i].getTo() << endl;
+            cout << "第" << carList[i].getId() << "辆车，起点为:" << carList[i].getFrom() << "，终点为:" << carList[i].getTo() << endl;
         }
     }
 

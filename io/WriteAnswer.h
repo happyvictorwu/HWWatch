@@ -18,7 +18,7 @@ public:
     WriteAnswer(const vector<vector<int> > &res, const string &answerPath) {
         FILE *fp;
         fp = fopen(answerPath.c_str(), "w+");
-
+        fprintf(fp, "#(carId,StartTime,RoadId...)\n" );
         for (int i = 0; i < res.size(); i++) {
             fprintf(fp, "(");
             for (int j = 0; j < res[i].size(); j++) {

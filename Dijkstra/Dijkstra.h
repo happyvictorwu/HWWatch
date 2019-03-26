@@ -121,7 +121,7 @@ public:
     }
 
     // 打印出从s点到w点的路径
-    void showPath(vector<int> &res, int w){
+    void showPath(int w, vector<int> &res){
 
         assert( w >= 0 && w < G.V() );
         assert( hasPathTo(w) );
@@ -129,12 +129,16 @@ public:
         vector<Edge<Weight>> vec;
         shortestPath(w, vec);
         for( int i = 0; i < vec.size() ; i ++ ){
+
+//            打印去到的节点
 //            res.push_back(vec[i].v());
 //            cout<<vec[i].v()<<" -> ";
 //            if( i == vec.size()-1 ) {
 //                cout<<vec[i].w()<<endl;
 //                res.push_back(vec[i].w());
 //            }
+
+            // 打印道路
             res.push_back(vec[i].getRoad());
 
 

@@ -47,6 +47,8 @@ public:
     // 返回权值
     Weight wt(){ return weight;}
 
+    void setWt(Weight w) { weight = w; }
+
     int getRoad(){ return road; }
 
     void addRoad(int road) {
