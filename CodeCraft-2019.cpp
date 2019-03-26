@@ -7,7 +7,17 @@
 using namespace std;
 
 
+<<<<<<< HEAD
 const int numberOfCross = 100;  // Cross的个数
+=======
+// car assign
+vector<Car> carList;    // 每辆车的信息
+vector<vector<int> > carGo; // 答案格式的二维数组
+
+
+
+const int numberOfCross = 100;
+>>>>>>> 3c0aaa98c6bea2e3150dcbfeae2236440e064da1
 
 int main(int argc, char *argv[])
 {
@@ -41,8 +51,11 @@ int main(int argc, char *argv[])
 
     // TODO: process
 
+<<<<<<< HEAD
     // MARK: - 拿到每个车辆的最短路径， 和最早出发时间
 
+=======
+>>>>>>> 3c0aaa98c6bea2e3150dcbfeae2236440e064da1
     vector<vector<int> > resArr( g.carList.size() );  // resArr 是保存答案的二维数组存着每辆车的出发信息
 
     for (int i = 0; i < g.carList.size(); i++) {
@@ -69,6 +82,7 @@ int main(int argc, char *argv[])
             exit(1);
         }     
         cout << "----------" << endl;
+<<<<<<< HEAD
 
         // MARK: - 拿每辆车路程时间
 
@@ -92,6 +106,29 @@ int main(int argc, char *argv[])
 //        }
 //        printf(")\n");
 //    }
+=======
+    }
+
+
+
+
+
+
+    // TODO:write output file
+    WriteAnswer writeAnswer(resArr, answerPath);
+
+    // 输出数组：
+    printf("#(carId,StartTime,RoadId...)\n");
+    for (int i = 0; i < resArr.size(); i++) {
+        printf("(");
+        for (int j = 0; j < resArr[i].size(); j++) {
+            printf("%d", resArr[i][j]);
+            if (j != resArr[i].size() - 1)
+                printf(",");
+        }
+        printf(")\n");
+    }
+>>>>>>> 3c0aaa98c6bea2e3150dcbfeae2236440e064da1
     assert(resArr.size() == g.carList.size());
     cout << "一共有 " << resArr.size() << " 辆车"<< endl;
     cout << "运行结束" << endl;
