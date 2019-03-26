@@ -8,9 +8,9 @@
 #include <iostream>
 #include <vector>
 #include <stack>
-#include "../Edge.h"
+#include "../entity/Edge.h"
 #include "IndexMinHeap.h"
-#include "../Car.h"
+#include "../entity/Car.h"
 
 using namespace std;
 

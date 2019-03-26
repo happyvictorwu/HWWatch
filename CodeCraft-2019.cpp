@@ -1,8 +1,8 @@
 #include "iostream"
 #include "SparseGraph.h"
-#include "ReadGraph.h"
+#include "io/ReadGraph.h"
 #include "Dijkstra/Dijkstra.h"
-#include "WriteAnswer.h"
+#include "io/WriteAnswer.h"
 
 using namespace std;
 
@@ -25,18 +25,18 @@ int main(int argc, char *argv[])
 	std::cout << "crossPath is " << crossPath << std::endl;
 	std::cout << "answerPath is " << answerPath << std::endl;
 	
-	// TODO:read input filebuf
-    cout << "\t--- READ INPUT FILEBUF ---" << endl;
-	int V = 100;
-    SparseGraph<int> g = SparseGraph<int>(V, true);
-    ReadGraph<SparseGraph<int>, int> readGraph(g, carPath, crossPath, roadPath);
-    g.show();
-    cout << "\n\tEND OF READ INPUT FILEBUF" << endl;
+	// TODO: read input filebuf
+    const int numberOfCross = 100;
+    SparseGraph<int> g = SparseGraph<int>(numberOfCross+1, true); // 初始化图g，（节点个数， 有向图）
 
-    // TODO:process
-    cout << "\t--- PROCESS ---" << endl;
-    cout<<"Test Dijkstra:"<<endl<<endl;
 
+    ReadGraph<SparseGraph<int>, double> readGraph(g, carPath, crossPath, roadPath); // 读文件三个文件
+
+    g.show();   // 显示一下图的内容
+
+
+
+    // TODO: process
     vector<vector<int> > resArr(g.carList.size());
     for (int i = 0; i < g.carList.size(); i++) {
 
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
             dij.showPath(resArr[i], g.carList[i].getTo());
         }
         else {
-            cout<<g.carList[i].getFrom()<<"No Path to "<<g.carList[i].getTo()<<endl;
+            cout <<g.carList[i].getFrom()<<"No Path to "<<g.carList[i].getTo()<<endl;
         }     
         cout<<"----------"<<endl;
     }
@@ -66,14 +66,6 @@ int main(int argc, char *argv[])
 
     cout << "last number is" << resArr.size() << endl;
 
-//    vector<vector<int> > res;
-//    for (int i = 0; i < resArr.size(); i++) {
-//        res[i].push_back(resArr[i][0]);
-//        res[i].push_back(resArr[i][1]);
-//        for (int j = 2; j < resArr[i].size()-1; j++ ) {
-//            g
-//        }
-//    }
 
     WriteAnswer writeAnswer(resArr, answerPath);
     cout << "\n\tEND OF WRITE OUTPUT FILE" << endl;

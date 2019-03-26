@@ -8,8 +8,8 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include "Edge.h"
-#include "Car.h"
+#include "entity/Edge.h"
+#include "entity/Car.h"
 
 using namespace std;
 
@@ -59,16 +59,6 @@ public:
         if( v != w && !directed )   // 如果是无向边
             g[w].push_back(new Edge<Weight>(w, v, weight, roadId));
         m ++;
-    }
-
-    // 为边添加道路
-    void addEdgeRoad(int roadId, int crossId, int to) {
-        assert(crossId > 0 && crossId <= n);
-        for (int i = 0; i < g[crossId].size(); i++) {
-            if ( g[crossId][i]->w() == to ) {
-                g[crossId][i]->addRoad(roadId);
-            }
-        }
     }
 
     // 验证图中是否有从v到w的边
