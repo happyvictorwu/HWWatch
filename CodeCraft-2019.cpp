@@ -5,11 +5,15 @@
 #include "io/WriteAnswer.h"
 #include "entity/Car.h"
 
+#define WeightType double
+
 using namespace std;
 
 
 const int numberOfCross = 100;  // Cross的个数
 
+
+void calculateCarsTime(SparseGraph<WeightType> &graph, vector<Car> &resArr);
 
 int main(int argc, char *argv[])
 {
@@ -32,10 +36,10 @@ int main(int argc, char *argv[])
 	
 	// TODO: read input filebuf
 
-    SparseGraph<int> g = SparseGraph<int>(numberOfCross+1, true); // 初始化图g，（节点个数， 有向图）
+    SparseGraph<WeightType> g = SparseGraph<WeightType>(numberOfCross+1, true); // 初始化图g，（节点个数， 有向图）
 
 
-    ReadGraph<SparseGraph<int>, double> readGraph(g, carPath, crossPath, roadPath); // 读文件三个文件
+    ReadGraph<SparseGraph<WeightType>, WeightType> readGraph(g, carPath, crossPath, roadPath); // 读文件三个文件
 
     g.show();   // 显示一下图的内容
 
@@ -49,7 +53,7 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i < g.carList.size(); i++) {
         Car originCar = g.carList[i];
-        Dijkstra<SparseGraph<int>, int> dij(g, originCar.getFrom());    // 对于图g，从车的起点组做Dijkstra
+        Dijkstra<SparseGraph<WeightType>, WeightType> dij(g, originCar.getFrom());    // 对于图g，从车的起点组做Dijkstra
 
         // 如当前的起点有去终点，就把答案放入resArr答案数组中，否则程序有异常
         if( dij.hasPathTo(originCar.getTo()) ) {
@@ -70,12 +74,10 @@ int main(int argc, char *argv[])
     }
 
     // TODO: - 计算每一辆车到终点的时间，放在与resArr的每一个Car中
-    // 按照出发顺序从小到大排序，出发顺序一样按照车辆的速度从大到小排序（题目原意为按照车的id从小到大）
-    // 一辆一辆车进行出发，分别计算其对应的前一个车的到达时间，再剩下每出发车里面最速度最快的一辆车出发，直到所有车已经出发
+    // 按起始时间从小到大排序， 计算每一辆开始时间和终止时间，保存到resArr中
+    calculateCarsTime(g, resArr);
 
-
-    // TODO： - 根据到终点的时间调整每一辆车的发车时间
-
+    // TODO： - 按车辆id从小到大排序
 
 
 
@@ -88,4 +90,28 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
+bool cmpPlanTime(Car& c1,Car& c2){
+    return c1.getPlanTime() < c2.getPlanTime();
+}
+bool cmpId(Car& c1,Car& c2){
+    return c1.getId() < c2.getId();
+}
+void calculateCarsTime(SparseGraph<WeightType> &graph, vector<Car> &resArr) {
+
+    sort(resArr.begin(),resArr.end(),cmpPlanTime);
+    int prevFinshedTime = 0;
+    for (int i = 0; i < resArr.size(); ++i) {
+        Car& c = resArr[i];
+        int costTime = 0;
+        c.setStartTime(max(prevFinshedTime,c.getPlanTime()));
+        for(int i : c.roadList){
+            Edge<WeightType > *r = graph.getEdge(i);
+            int curtime = r->getLength() / r->getSpeed() + 1;
+            costTime += curtime;
+        }
+        prevFinshedTime = c.getStartTime() + costTime;
+    }
+    sort(resArr.begin(),resArr.end(),cmpId);
+}
+
 

@@ -71,6 +71,19 @@ public:
         return false;
     }
 
+    Edge<Weight> * getEdge(int roadId) {
+        for (int i = 1; i <= g.size(); i++) {
+            for (int j = 0; j <g[i].size(); j++) {
+                if (g[i][j]->getRoad() == roadId) {
+                    return g[i][j];
+                }
+            }
+        }
+        cout << "Don't find roadId" << endl;
+        exit(1);
+        return NULL;
+    }
+
     // 显示图的信息
     void show(){
 

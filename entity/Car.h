@@ -8,6 +8,7 @@
 #include <iostream>
 #include <cassert>
 
+
 using namespace std;
 
 class Car {
@@ -21,7 +22,7 @@ private:
     int finishTime;
 
 public:
-    vector<int> roadList;
+    vector<int> roadList;   // 行驶路线
 
     Car(int id, int from, int to, int speed, int planTime) {
         this->id = id;
