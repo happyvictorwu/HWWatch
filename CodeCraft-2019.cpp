@@ -11,8 +11,6 @@ using namespace std;
 const int numberOfCross = 100;  // Cross的个数
 
 
-void calculateEndingTime(vector<Car> &);
-
 int main(int argc, char *argv[])
 {
     std::cout << "Begin" << std::endl;
@@ -71,9 +69,9 @@ int main(int argc, char *argv[])
         // cout << "----------" << endl;
     }
 
-    // TODO: - 计算每一辆车到终点的时间，放在与resArr相对应的一个vector中
-    calculateEndingTime(resArr);    // 返回计算每辆车的终点时间
-
+    // TODO: - 计算每一辆车到终点的时间，放在与resArr的每一个Car中
+    // 按照出发顺序从小到大排序，出发顺序一样按照车辆的速度从大到小排序（题目原意为按照车的id从小到大）
+    // 一辆一辆车进行出发，分别计算其对应的前一个车的到达时间，再剩下每出发车里面最速度最快的一辆车出发，直到所有车已经出发
 
 
     // TODO： - 根据到终点的时间调整每一辆车的发车时间
@@ -91,10 +89,3 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-
-
-
-
-void calculateEndingTime(vector<Car> &resArr) {
-
-}
