@@ -48,16 +48,16 @@ public:
     int E(){ return m;} // 返回边的个数
 
     // 向图中添加一个边, 权值为weight
-    void addEdge( int v, int w , Weight weight, int roadId){
+    void addEdge( int v, int w , Weight weight, int roadId, int road_length, int road_speed, int road_channel){
         assert( v > 0 && v <= n );
         assert( w > 0 && w <= n );
 
         // 注意, 由于在邻接表的情况, 查找是否有重边需要遍历整个链表
         // 程序允许重边的出现
 
-        g[v].push_back(new Edge<Weight>(v, w, weight, roadId));
+        g[v].push_back( new Edge<Weight>(v, w, weight, roadId, road_length, road_speed, road_channel) );
         if( v != w && !directed )   // 如果是无向边
-            g[w].push_back(new Edge<Weight>(w, v, weight, roadId));
+            g[w].push_back( new Edge<Weight>(w, v, weight, roadId, road_length, road_speed, road_channel) );
         m ++;
     }
 
@@ -77,14 +77,25 @@ public:
         for( int i = 1 ; i <= n ; i ++ ){
             cout << "vertex " << i << ":\t";
             for( int j = 0 ; j < g[i].size() ; j ++ )
-                cout << "( to:" << g[i][j]->w() << ",wt:" << g[i][j]->wt() << ",roadId:" << g[i][j]->getRoad() << ")\t";
+                cout << "( to:" << g[i][j]->w()
+                << ",wt:" << g[i][j]->wt()
+                << ",roadId:" << g[i][j]->getRoad()
+                << ",speed:" << g[i][j]->getSpeed()
+                << ",length:" << g[i][j]->getLength()
+                << ",channel:" << g[i][j]->getChannel()
+                << " )\t";
             cout << endl;
         }
     }
 
     void showCar() {
         for (int i = 0; i < carList.size(); i++) {
-            cout << "第" << carList[i].getId() << "辆车，起点为:" << carList[i].getFrom() << "，终点为:" << carList[i].getTo() << endl;
+            cout << "(第" << carList[i].getId()
+            << "辆车，起点为:" << carList[i].getFrom()
+            << ",终点为:" << carList[i].getTo()
+            << ",速度为:" << carList[i].getSpeed()
+            << "," << carList[i].getPlanTime() << ")"
+            << endl;
         }
     }
 

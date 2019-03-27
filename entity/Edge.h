@@ -17,7 +17,12 @@ class Edge{
 private:
     int a,b;    // 边的两个端点
     Weight weight;  // 边的权值
+
     int road;   //拥有的道路
+    int road_length;    //道路长度
+    int road_speed; // 道路最高速度
+    int road_channel;    // 车道数目
+
 
 public:
     // 构造函数
@@ -25,6 +30,16 @@ public:
         this->a = a;
         this->b = b;
         this->weight = weight;
+    }
+
+    Edge(int a, int b, Weight weight, int roadId, int road_length, int road_speed, int road_channel){
+        this->a = a;
+        this->b = b;
+        this->weight = weight;
+        this->road = roadId;
+        this->road_length = road_length;
+        this->road_speed = road_speed;
+        this->road_channel = road_channel;
     }
 
     Edge(int a, int b, Weight weight, int roadId){
@@ -40,17 +55,19 @@ public:
     ~Edge(){}
 
 
-    // 返回第一个顶点
-    int v(){ return a;}
-    // 返回第二个顶点
-    int w(){ return b;}
-    // 返回权值
-    Weight wt(){ return weight;}
+    // Getter
+    int v(){ return a;} // 返回第一个顶点 from
+    int w(){ return b;} // 返回第二个顶点 to
+    Weight wt(){ return weight;}    // 返回权值
+    int getRoad(){ return road; }   // 返回道路id
+    int getSpeed() { return road_speed; }   //返回道路最高速度
+    int getLength() { return road_length; } //返回道路长度
+    int getChannel() { return road_channel; }   //返回车道数
 
+    // Setter
     void setWt(Weight w) { weight = w; }
 
-    int getRoad(){ return road; }
-
+    // Method
     void addRoad(int road) {
         this->road = road;
     }

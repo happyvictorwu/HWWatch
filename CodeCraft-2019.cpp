@@ -62,14 +62,15 @@ int main(int argc, char *argv[])
             dij.showPath( originCar.getTo(), resArr[i] ); // (到车的终点to， 保存结果的数组resArr)
 
             // 输出最短路径为多少
-            cout << originCar.getFrom() << " -> " << originCar.getTo() << " 最短路径长度为 "
-                 << dij.shortestPathTo( originCar.getTo() ) << endl;
+            // cout << originCar.getFrom() << " -> " << originCar.getTo() << " 最短路径长度为 "
+            //      << dij.shortestPathTo( originCar.getTo() ) << endl;
 
         } else {
+            // 应该不会触发
             cout << g.carList[i].getFrom() << " 没有路径去 " << g.carList[i].getTo() << "异常" <<endl;
             exit(1);
         }     
-        cout << "----------" << endl;
+        // cout << "----------" << endl;
 
         // MARK: - 拿每辆车路程时间
 

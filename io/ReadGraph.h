@@ -36,16 +36,15 @@ private:
             printf("%d %d %d %d %d %d %d\n", id, length, speed, channel, from, to, isDuplex);
             int a = from;
             int b = to;
-            int c = id;
             Weight wt = (double)length / speed;
 
             assert( a > 0 && a <= graph.V() );
             assert( b > 0 && b <= graph.V() );
 
-            graph.addEdge( a, b, wt, c);
+            graph.addEdge( a, b, wt, id, length, speed, channel);
 
             if (isDuplex) {
-                graph.addEdge( b, a, wt, c);
+                graph.addEdge( b, a, wt, id, length, speed, channel);
             }
         }
         fclose(fp);

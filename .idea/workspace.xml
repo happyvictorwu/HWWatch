@@ -12,7 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7942b1d1-42a1-4ae4-a6f0-bf007a88ceb7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CodeCraft-2019.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCraft-2019.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SparseGraph.h" beforeDir="false" afterPath="$PROJECT_DIR$/SparseGraph.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity/Edge.h" beforeDir="false" afterPath="$PROJECT_DIR$/entity/Edge.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/io/ReadGraph.h" beforeDir="false" afterPath="$PROJECT_DIR$/io/ReadGraph.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,13 +26,47 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CodeCraft-2019.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="38">
+              <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SparseGraph.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="85" column="21" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#121#140#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/entity/Edge.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="34" column="99" lean-forward="true" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="99" />
+              <folding>
+                <element signature="e#107#126#0" expanded="true" />
+                <element signature="e#200#217#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/io/ReadGraph.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="46" column="64" lean-forward="true" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
+              <folding>
+                <element signature="e#117#136#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,16 +90,17 @@
         <option value="$PROJECT_DIR$/Edge.h" />
         <option value="$PROJECT_DIR$/ReadGraph.h" />
         <option value="$PROJECT_DIR$/CarAssign.h" />
-        <option value="$PROJECT_DIR$/SparseGraph.h" />
-        <option value="$PROJECT_DIR$/io/ReadGraph.h" />
         <option value="$PROJECT_DIR$/Dijkstra/Dijkstra.h" />
-        <option value="$PROJECT_DIR$/entity/Edge.h" />
         <option value="$PROJECT_DIR$/io/WriteAnswer.h" />
         <option value="$PROJECT_DIR$/CodeCraft-2019.cpp" />
+        <option value="$PROJECT_DIR$/entity/RoadInfo.h" />
+        <option value="$PROJECT_DIR$/io/ReadGraph.h" />
+        <option value="$PROJECT_DIR$/entity/Edge.h" />
+        <option value="$PROJECT_DIR$/SparseGraph.h" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="40" />
     <option name="y" value="44" />
     <option name="width" value="1353" />
@@ -99,6 +136,11 @@
               <item name="CodeCraft-2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="CodeCraft-2019" type="462c0819:PsiDirectoryNode" />
               <item name="Dijkstra" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CodeCraft-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CodeCraft-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CodeCraft-2019" type="b2602c69:ProjectViewProjectNode" />
@@ -154,12 +196,12 @@
       <updated>1553516444948</updated>
       <workItem from="1553516448181" duration="5529000" />
       <workItem from="1553575305921" duration="10992000" />
-      <workItem from="1553653737735" duration="704000" />
+      <workItem from="1553653737735" duration="4040000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23227000" />
+    <option name="totallyTimeSpent" value="26563000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -171,11 +213,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="40" y="44" width="1353" height="790" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="812" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48567334" visible="true" weight="0.2044241" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.51432663" side_tool="true" visible="true" weight="0.2044241" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.57361114" visible="true" weight="0.19170243" />
+      <window_info id="Structure" order="1" sideWeight="0.4263889" side_tool="true" visible="true" weight="0.19170243" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -185,7 +227,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32916668" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.35277778" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.5888889" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32916668" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32916668" />
@@ -210,28 +252,8 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/CarAssign.h" />
-    <entry file="file://$PROJECT_DIR$/entity/Edge.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="49" column="40" lean-forward="true" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
-          <folding>
-            <element signature="e#107#126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dijkstra/IndexMinHeap.h">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SparseGraph.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding>
-            <element signature="e#121#140#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dijkstra/Dijkstra.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -239,16 +261,6 @@
           <caret line="138" column="15" selection-start-line="138" selection-start-column="15" selection-end-line="138" selection-end-column="15" />
           <folding>
             <element signature="e#115#134#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/io/ReadGraph.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="39" column="38" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="38" />
-          <folding>
-            <element signature="e#117#136#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -263,12 +275,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/entity/RoadInfo.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CodeCraft-2019.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="38">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/io/ReadGraph.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="46" column="64" lean-forward="true" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#117#136#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entity/Edge.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="34" column="99" lean-forward="true" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="99" />
+          <folding>
+            <element signature="e#107#126#0" expanded="true" />
+            <element signature="e#200#217#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SparseGraph.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="85" column="21" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
+          <folding>
+            <element signature="e#121#140#0" expanded="true" />
           </folding>
         </state>
       </provider>
