@@ -121,7 +121,7 @@ public:
     }
 
     // 打印出从s点到w点的路径
-    void showPath(int w, vector<int> &res){
+    void showPath(int w, Car &car){
 
         assert( w >= 0 && w < G.V() );
         assert( hasPathTo(w) );
@@ -129,7 +129,7 @@ public:
         vector<Edge<Weight>> vec;
         shortestPath(w, vec);
         for( int i = 0; i < vec.size() ; i ++ ){
-
+            car.roadList.push_back(vec[i].getRoad());   // 把车的行驶路线放到Car类中对应的路线中
 //            打印去到的节点
 //            res.push_back(vec[i].v());
 //            cout<<vec[i].v()<<" -> ";
@@ -137,10 +137,6 @@ public:
 //                cout<<vec[i].w()<<endl;
 //                res.push_back(vec[i].w());
 //            }
-
-            // 打印道路
-            res.push_back(vec[i].getRoad());
-
 
         }
     }

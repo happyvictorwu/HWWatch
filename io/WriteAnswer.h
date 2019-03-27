@@ -15,15 +15,17 @@ using namespace std;
 
 class WriteAnswer {
 public:
-    WriteAnswer(const vector<vector<int> > &res, const string &answerPath) {
+    WriteAnswer(const vector<Car> &res, const string &answerPath) {
         FILE *fp;
         fp = fopen(answerPath.c_str(), "w+");
         fprintf(fp, "#(carId,StartTime,RoadId...)\n" );
         for (int i = 0; i < res.size(); i++) {
             fprintf(fp, "(");
-            for (int j = 0; j < res[i].size(); j++) {
-                fprintf(fp, "%d", res[i][j]);
-                if (j != res[i].size() - 1)
+            Car car = res[i];
+            fprintf(fp, "%d,%d,", car.getId(), car.getStartTime());
+            for (int j = 0; j < car.roadList.size(); j++) {
+                fprintf(fp, "%d", car.roadList[j]);
+                if (j != car.roadList.size() - 1)
                     fprintf(fp, ",");
             }
             fprintf(fp, ")\n");

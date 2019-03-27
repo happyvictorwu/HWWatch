@@ -3,12 +3,15 @@
 #include "io/ReadGraph.h"
 #include "Dijkstra/Dijkstra.h"
 #include "io/WriteAnswer.h"
+#include "entity/Car.h"
 
 using namespace std;
 
 
 const int numberOfCross = 100;  // Cross的个数
 
+
+void calculateEndingTime(vector<Car> &);
 
 int main(int argc, char *argv[])
 {
@@ -44,22 +47,17 @@ int main(int argc, char *argv[])
 
     // MARK: - 拿到每个车辆的最短路径， 和最早出发时间
 
-    vector<vector<int> > resArr( g.carList.size() );  // resArr 是保存答案的二维数组存着每辆车的出发信息
+    vector<Car> resArr;  // resArr 是保存答案的二维数组存着每辆车的出发信息
 
     for (int i = 0; i < g.carList.size(); i++) {
-
         Car originCar = g.carList[i];
-
         Dijkstra<SparseGraph<int>, int> dij(g, originCar.getFrom());    // 对于图g，从车的起点组做Dijkstra
 
         // 如当前的起点有去终点，就把答案放入resArr答案数组中，否则程序有异常
-        if( dij.hasPathTo( originCar.getTo() ) ) {
+        if( dij.hasPathTo(originCar.getTo()) ) {
 
-            //头两个元素分别是 车辆的时间 , 实际的出发时间
-            resArr[i].push_back(originCar.getId());
-            resArr[i].push_back(originCar.getPlanTime());
-
-            dij.showPath( originCar.getTo(), resArr[i] ); // (到车的终点to， 保存结果的数组resArr)
+            dij.showPath( originCar.getTo(), originCar ); // (到车的终点to， 保存结果roadList到originCar中)
+            resArr.push_back(originCar);
 
             // 输出最短路径为多少
             // cout << originCar.getFrom() << " -> " << originCar.getTo() << " 最短路径长度为 "
@@ -71,11 +69,14 @@ int main(int argc, char *argv[])
             exit(1);
         }     
         // cout << "----------" << endl;
-
-        // MARK: - 拿每辆车路程时间
-
-
     }
+
+    // TODO: - 计算每一辆车到终点的时间，放在与resArr相对应的一个vector中
+    calculateEndingTime(resArr);    // 返回计算每辆车的终点时间
+
+
+
+    // TODO： - 根据到终点的时间调整每一辆车的发车时间
 
 
 
@@ -88,4 +89,12 @@ int main(int argc, char *argv[])
     cout << "运行结束" << endl;
 
 	return 0;
+}
+
+
+
+
+
+void calculateEndingTime(vector<Car> &resArr) {
+
 }
