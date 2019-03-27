@@ -7,17 +7,8 @@
 using namespace std;
 
 
-<<<<<<< HEAD
 const int numberOfCross = 100;  // Cross的个数
-=======
-// car assign
-vector<Car> carList;    // 每辆车的信息
-vector<vector<int> > carGo; // 答案格式的二维数组
 
-
-
-const int numberOfCross = 100;
->>>>>>> 3c0aaa98c6bea2e3150dcbfeae2236440e064da1
 
 int main(int argc, char *argv[])
 {
