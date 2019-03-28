@@ -23,4 +23,4 @@ SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall -std=c++11")
 aux_source_directory(. DIR_SRCS)
 
 # 指定生成目标
-add_executable(CodeCraft-2019 ${DIR_SRCS})
+add_executable(CodeCraft-2019 ${DIR_SRCS} SparseGraph.h io/ReadGraph.h io/WriteAnswer.h entity/Car.h entity/Edge.h Dijkstra/Dijkstra.h Dijkstra/IndexMinHeap.h)

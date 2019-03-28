@@ -85,6 +85,27 @@
 		<Unit filename="/Users/victorwu/Desktop/Developer/GitHubRepositories/SDK_C++/CodeCraft-2019/CodeCraft-2019.cpp">
 			<Option target="CodeCraft-2019"/>
 		</Unit>
+		<Unit filename="/Users/victorwu/Desktop/Developer/GitHubRepositories/SDK_C++/CodeCraft-2019/Dijkstra/Dijkstra.h">
+			<Option target="CodeCraft-2019"/>
+		</Unit>
+		<Unit filename="/Users/victorwu/Desktop/Developer/GitHubRepositories/SDK_C++/CodeCraft-2019/Dijkstra/IndexMinHeap.h">
+			<Option target="CodeCraft-2019"/>
+		</Unit>
+		<Unit filename="/Users/victorwu/Desktop/Developer/GitHubRepositories/SDK_C++/CodeCraft-2019/SparseGraph.h">
+			<Option target="CodeCraft-2019"/>
+		</Unit>
+		<Unit filename="/Users/victorwu/Desktop/Developer/GitHubRepositories/SDK_C++/CodeCraft-2019/entity/Car.h">
+			<Option target="CodeCraft-2019"/>
+		</Unit>
+		<Unit filename="/Users/victorwu/Desktop/Developer/GitHubRepositories/SDK_C++/CodeCraft-2019/entity/Edge.h">
+			<Option target="CodeCraft-2019"/>
+		</Unit>
+		<Unit filename="/Users/victorwu/Desktop/Developer/GitHubRepositories/SDK_C++/CodeCraft-2019/io/ReadGraph.h">
+			<Option target="CodeCraft-2019"/>
+		</Unit>
+		<Unit filename="/Users/victorwu/Desktop/Developer/GitHubRepositories/SDK_C++/CodeCraft-2019/io/WriteAnswer.h">
+			<Option target="CodeCraft-2019"/>
+		</Unit>
 		<Unit filename="/Users/victorwu/Desktop/Developer/GitHubRepositories/SDK_C++/CodeCraft-2019/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

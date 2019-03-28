@@ -12,10 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7942b1d1-42a1-4ae4-a6f0-bf007a88ceb7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeCraft-2019.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CodeCraft-2019.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SparseGraph.h" beforeDir="false" afterPath="$PROJECT_DIR$/SparseGraph.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/Car.h" beforeDir="false" afterPath="$PROJECT_DIR$/entity/Car.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,14 +36,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CodeCraft-2019.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="96" column="34" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+            <state relative-caret-position="1271">
+              <caret line="101" column="28" lean-forward="true" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="25" column="158" selection-start-line="25" selection-start-column="158" selection-end-line="25" selection-end-column="158" />
             </state>
           </provider>
         </entry>
@@ -140,11 +146,12 @@
         <option value="$PROJECT_DIR$/Dijkstra/Dijkstra.h" />
         <option value="$PROJECT_DIR$/SparseGraph.h" />
         <option value="$PROJECT_DIR$/CodeCraft-2019.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="107" />
     <option name="y" value="206" />
     <option name="width" value="1440" />
@@ -236,12 +243,12 @@
       <updated>1553516444948</updated>
       <workItem from="1553516448181" duration="5529000" />
       <workItem from="1553575305921" duration="10992000" />
-      <workItem from="1553653737735" duration="15037000" />
+      <workItem from="1553653737735" duration="15326000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37560000" />
+    <option name="totallyTimeSpent" value="37849000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -253,11 +260,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.57349396" visible="true" weight="0.18168813" />
-      <window_info id="Structure" order="1" sideWeight="0.426506" side_tool="true" visible="true" weight="0.18168813" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.57326734" visible="true" weight="0.13525027" />
+      <window_info id="Structure" order="1" sideWeight="0.42673266" side_tool="true" visible="true" weight="0.13525027" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -360,11 +367,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CodeCraft-2019.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="96" column="34" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+        <state relative-caret-position="1271">
+          <caret line="101" column="28" lean-forward="true" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="158" selection-start-line="25" selection-start-column="158" selection-end-line="25" selection-end-column="158" />
         </state>
       </provider>
     </entry>
